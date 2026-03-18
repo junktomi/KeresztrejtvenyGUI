@@ -65,9 +65,22 @@ namespace KeresztrejtvenyGUI
                     tb.Width = 25;
                     tb.Height = 25;
                     tb.TextAlignment = TextAlignment.Center;
+                    tb.MaxLength = 1;
+                    tb.MouseDoubleClick += Valtas;
                     mezok[i, j] = tb;
                     gridRacs.Children.Add(tb);
                 }
+            }
+        }
+        private void Valtas(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb.Text == "-"){
+                tb.Text = "#";
+            }
+            else
+            {
+                tb.Text = "-";
             }
         }
     }
