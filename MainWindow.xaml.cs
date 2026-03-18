@@ -43,7 +43,32 @@ namespace KeresztrejtvenyGUI
 
             cbIndex.SelectedItem = 3;
         }
+        //b
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            int sor = (int)cbSor.SelectedItem;
+            int oszlop = (int)cbOszlop.SelectedItem;
 
-        
+            gridRacs.Children.Clear();
+
+            gridRacs.Rows = sor;
+            gridRacs.Columns = oszlop;
+
+            mezok = new TextBox[sor, oszlop];
+
+            for (int i = 0; i < sor; i++)
+            {
+                for (int j = 0; j < oszlop; j++)
+                {
+                    TextBox tb = new TextBox();
+                    tb.Text = "-";
+                    tb.Width = 25;
+                    tb.Height = 25;
+                    tb.TextAlignment = TextAlignment.Center;
+                    mezok[i, j] = tb;
+                    gridRacs.Children.Add(tb);
+                }
+            }
+        }
     }
 }
