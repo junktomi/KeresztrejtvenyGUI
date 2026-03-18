@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -83,5 +84,40 @@ namespace KeresztrejtvenyGUI
                 tb.Text = "-";
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //chatgpt segítség volt a streamwriterhez és az error exceptionhöz
+            try
+            {
+                int sor = mezok.GetLength(0);
+                int oszlop = mezok.GetLength(1);
+
+                int index = (int)cbIndex.SelectedItem;
+                string fajlNev = $"kr{index}.txt";
+
+                using (StreamWriter sw = new StreamWriter(fajlNev))
+                {
+                    for (int i = 0; i < sor; i++)
+                    {
+                        string sorSzoveg = "";
+
+                        for (int j = 0; j < oszlop; j++)
+                        {
+                            sorSzoveg += mezok[i, j].Text;
+                        }
+
+                        sw.WriteLine(sorSzoveg);
+                    }
+                }
+
+                MessageBox.Show("Mentés sikeres!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
+    
 }
