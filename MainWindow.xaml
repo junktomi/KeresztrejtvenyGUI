@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KeresztrejtvenyGUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Keresztrejtvény készítő" Height="600" Width="800">
+    <StackPanel Margin="10">
 
-    </Grid>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Keresztrejtvény mérete (sor x oszlop): " VerticalAlignment="Center"/>
+
+            <ComboBox x:Name="cbSor" Width="60" Margin="5"/>
+            <ComboBox x:Name="cbOszlop" Width="60" Margin="5"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <Button Content="Keresztrejtvény létrehozása" Margin="5"/>
+
+            <Button Content="Keresztrejtvény mentése" Margin="5"/>
+
+            <ComboBox x:Name="cbIndex" Width="60" Margin="5"/>
+        </StackPanel>
+
+        <ScrollViewer>
+            <UniformGrid x:Name="gridRacs"/>
+        </ScrollViewer>
+
+    </StackPanel>
 </Window>

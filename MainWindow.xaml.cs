@@ -19,6 +19,31 @@ namespace KeresztrejtvenyGUI
         public MainWindow()
         {
             InitializeComponent();
+            FeltoltCombok();
         }
+            
+        
+        TextBox[,] mezok;
+
+        private void FeltoltCombok()
+        {
+            for (int i = 6; i <= 15; i++)
+            {
+                cbSor.Items.Add(i);
+                cbOszlop.Items.Add(i);
+            }
+
+            cbSor.SelectedItem = 15;
+            cbOszlop.SelectedItem = 15;
+
+            for (int i = 1; i <= 10; i++)
+            {
+                cbIndex.Items.Add(i);
+            }
+
+            cbIndex.SelectedItem = 3;
+        }
+
+        
     }
 }
